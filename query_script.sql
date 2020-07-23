@@ -1,5 +1,7 @@
 -- 1. List the following details of each employee: employee number, last name, first name, sex, and salary.
 -- For this, I can query the above information, using the right join from 'employees' to 'salaries' to get the salary column
+-- Because the employees table have different first emp_no(473302) from the salaries table emp_no(10001), so right join to get the
+-- emp_no in ascending order.
 select 
 	e.emp_no,
 	e.first_name,
@@ -35,7 +37,7 @@ select
 from departments as d
 left join dept_manager as dm
 on d.dept_no=dm.dept_no
-inner join employees as e
+left join employees as e
 on dm.emp_no=e.emp_no
 limit 10;
  
@@ -108,6 +110,4 @@ group by last_name
 order by name_count desc
 limit 10;
 
-SELECT *
-FROM pg_settings
-WHERE name = 'port';
+
